@@ -4,7 +4,7 @@ public class Repros
 {
     public void Repro1(Tbl_Sleeve_Board param)
     {
-        DBContext _context = new DBContext();
+        MyDBContext _context = new MyDBContext();
 
 var m = _context.Tbl_Member.ToList();
 var key = _context.Tbl_Master_Board.ToList();
@@ -52,7 +52,7 @@ var rlst =
 
     public void Repro2()
     {
-        DBContext _context = new DBContext();
+        MyDBContext _context = new MyDBContext();
 
         var key = _context.Tbl_Member.ToList();
         var sl = _context.Tbl_UsedAddReg.ToList();
@@ -65,7 +65,8 @@ var rlst =
             {
                 Mission_Status = _context.Tbl_MaS_Ongoing.Where(x=>x.UsedCode =="" && x.End_Idx == 0 )
                     .Count() > 0 ? _context.Tbl_MaS_Ongoing.Where(x=> x.UsedCode == "" && x.End_Idx == 0)
-                    .FirstOrDefault().Mission_Type + ":" + _context.Tbl_MaS_Ongoing.Where(x=>x.UsedCode == "" && x.End_Idx == 0)
+                    .FirstOrDefault().Mission_Type + ":" + _context.Tbl_MaS_Ongoing
+                    .Where(x=> x.UsedCode == "" && x.End_Idx == 0)
                     .FirstOrDefault().Mission_Step : "Finish"
             }).ToList();
 
