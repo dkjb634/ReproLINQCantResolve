@@ -2,6 +2,21 @@ namespace ConsoleApp17.Tbls;
 
 public class Tbl_MaS_Ongoing
 {
+    public Tbl_MaS_Ongoing(string usedCode, string missionType, string missionStep, long missionIdx, int goodValue, long endIdx, string reviewSpecialist, string mentoUsedCode, int missionCost, int mentoGood, string missionCode)
+    {
+        UsedCode = usedCode;
+        Mission_Type = missionType;
+        Mission_Step = missionStep;
+        Mission_idx = missionIdx;
+        Good_value = goodValue;
+        End_Idx = endIdx;
+        Review_Specialist = reviewSpecialist;
+        Mento_UsedCode = mentoUsedCode;
+        Mission_Cost = missionCost;
+        Mento_Good = mentoGood;
+        Mission_Code = missionCode;
+    }
+
     public string UsedCode { get; set; }
     
     public string Mission_Type { get; set; }

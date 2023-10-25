@@ -1,10 +1,37 @@
 using ConsoleApp17.Tbls;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace ConsoleApp17;
 
 public class MyDBContext : DbContext
 {
+    public MyDBContext()
+    {
+        
+    }
+    protected MyDBContext(DbSet<Tbl_Sleeve_Board> tblSleeveBoard, DbSet<Tbl2_Member> tblMember, DbSet<Tbl_MaS_Ongoing> tblMaSOngoing, DbSet<Tbl_MyPoint> tblMyPoint, DbSet<Tbl_Master_Board> tblMasterBoard, DbSet<Tbl2_ContextBlocking> tbl2ContextBlocking, DbSet<Tbl_UsedAddReg> tblUsedAddReg)
+    {
+        Tbl_Sleeve_Board = tblSleeveBoard;
+        Tbl_Member = tblMember;
+        Tbl_MaS_Ongoing = tblMaSOngoing;
+        Tbl_MyPoint = tblMyPoint;
+        Tbl_Master_Board = tblMasterBoard;
+        Tbl2_ContextBlocking = tbl2ContextBlocking;
+        Tbl_UsedAddReg = tblUsedAddReg;
+    }
+
+    public MyDBContext(DbContextOptions options, DbSet<Tbl_Sleeve_Board> tblSleeveBoard, DbSet<Tbl2_Member> tblMember, DbSet<Tbl_MaS_Ongoing> tblMaSOngoing, DbSet<Tbl_MyPoint> tblMyPoint, DbSet<Tbl_Master_Board> tblMasterBoard, DbSet<Tbl2_ContextBlocking> tbl2ContextBlocking, DbSet<Tbl_UsedAddReg> tblUsedAddReg) : base(options)
+    {
+        Tbl_Sleeve_Board = tblSleeveBoard;
+        Tbl_Member = tblMember;
+        Tbl_MaS_Ongoing = tblMaSOngoing;
+        Tbl_MyPoint = tblMyPoint;
+        Tbl_Master_Board = tblMasterBoard;
+        Tbl2_ContextBlocking = tbl2ContextBlocking;
+        Tbl_UsedAddReg = tblUsedAddReg;
+    }
+
     private const int arrSize = 50;
     
     // public Tbl_Sleeve_Board[] Tbl_Sleeve_Board { get; set; } = new Tbl_Sleeve_Board[arrSize];
